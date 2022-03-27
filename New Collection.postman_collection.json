@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "efb06fa4-1943-43f1-8a9b-bd01448a7fe2",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8000/product/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"xiaomi\",\r\n    \"price\": 17000000,\r\n    \"stock\": 14,\r\n    \"status\": true,\r\n    \"img_url\": \"https://unsplash.com/s/photos/city-lights-at-night\",\r\n    \"users_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/product/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
