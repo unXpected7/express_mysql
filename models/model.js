@@ -1,12 +1,9 @@
 const sequelize = require('../config/products')
-const { Sequelize, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
-const Product = sequelize.define('Product', {
+const Product = sequelize.define('products', {
   // Model attributes are defined here
-  users_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
+  
   name: {
     type: DataTypes.STRING,
     allowNull: false
@@ -22,11 +19,18 @@ const Product = sequelize.define('Product', {
   status: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
-    allowNull: false
+    allowNull: true
   },
-  image_url: {
+  img_url: {
       type: DataTypes.TEXT
+  },
+  users_id: {
+    type: DataTypes.INTEGER,
+    allowNull: true
   }
+},
+{
+  timestamps: false,
 });
 sequelize.sync();
 
