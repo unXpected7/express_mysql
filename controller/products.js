@@ -1,14 +1,12 @@
 const Products = require("../models/model");
-// import _ from 'lodash';
 const _ = require('lodash');
-// if(_.isEmpty(name) || _.isEmpty(stock) || _.isEmpty(price))
-
 
 exports.store = async (req, res) => {
-  const { name, price, stock, status, img_url } = req.body;
+  const { name, price, stock, status, img_url,users_id } = req.body;
   console.log('body', req.body)
   try {
-    if (_.isEmpty(name) || _.isEmpty(stock) || _.isEmpty(price)) return res.status(400).send("some field cannot be empty");
+    if (_.isNil(name) || _.isNil(price) || _.isNil(stock)) 
+    return res.status(400).send("some field cannot be empty");
     
     const product = await Products.create({
       name,
@@ -24,7 +22,11 @@ exports.store = async (req, res) => {
       product: product,
     });
   } catch (error) {
-    res.status(500).send("internal server error");
+    // res.status(500).send("internal server error");
+    res.status(500).json({
+      msg:error.message,
+      status:"internal server error"
+      })
   }
 };
 
